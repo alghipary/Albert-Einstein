@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Exypnos — Web Developer</title>
+  <title>Desain — Exypnos</title>
   <meta name="description" content="Portofolio Nama Kamu, web developer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Londrina+Solid:wght@400;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    try {
+      if (sessionStorage.getItem('skipIntro')) {
+        document.documentElement.classList.add('no-intro');
+        sessionStorage.removeItem('skipIntro');
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
@@ -43,9 +51,9 @@
   <header class="top">
     <a class="brand" href="#atas">exypnos.dev</a>
     <nav aria-label="Navigasi utama">
-      <a href="#beranda">Beranda</a>
-      <a href="#produk">Produk</a>
-      <a href="#desain">Desain</a>
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="desain.html" class="active" aria-current="page">Desain</a>
     </nav>
   </header>
 
@@ -57,7 +65,7 @@
         <h1 class="hero-logo"><img src="logo.png" alt="Logo SMAN 71 Jakarta" width="500" height="480"></h1>
         <p class="lead">Halo, kami kelompok Exypnos, dari SMAN 71 Jakarta</p>
         <div class="actions">
-          <a class="btn primary" href="#beranda">Lihat proyek</a>
+          <a class="btn primary" href="#desain">Lihat proyek</a>
           <a class="btn" href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -73,8 +81,8 @@
       </aside>
     </section>
 
-    <section id="beranda" class="section">
-      <h2>Beranda</h2>
+    <section id="desain" class="section">
+      <h2>Desain</h2>
       <div class="projects">
         <article class="project">
           <span class="ico" aria-hidden="true">🛒</span>
@@ -97,34 +105,6 @@
           <p class="tags">React · API</p>
           <a href="#">Lihat kode</a>
         </article>
-      </div>
-    </section>
-
-    <section id="produk" class="section">
-      <h2>Produk</h2>
-      <ul class="skills">
-        <li><span aria-hidden="true">🌐</span> HTML</li>
-        <li><span aria-hidden="true">🎨</span> CSS</li>
-        <li><span aria-hidden="true">⚡</span> JavaScript</li>
-        <li><span aria-hidden="true">⚛️</span> React</li>
-        <li><span aria-hidden="true">🌿</span> Git</li>
-        <li><span aria-hidden="true">✏️</span> Figma</li>
-        <li><span aria-hidden="true">📱</span> Responsive design</li>
-        <li><span aria-hidden="true">♿</span> Aksesibilitas</li>
-      </ul>
-    </section>
-
-    <section id="desain" class="section">
-      <h2>Desain</h2>
-      <div class="designs">
-        <figure class="design d1">
-          <div class="art" aria-hidden="true">🎨</div>
-          <figcaption><strong>Logo &amp; Identitas</strong><span>Figma · Ilustrasi</span></figcaption>
-        </figure>
-        <figure class="design d2">
-          <div class="art" aria-hidden="true">📱</div>
-          <figcaption><strong>Mockup Aplikasi</strong><span>Figma · UI/UX</span></figcaption>
-        </figure>
       </div>
     </section>
 
@@ -181,37 +161,16 @@
       var links = document.querySelectorAll('.top nav a');
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // tandai menu sesuai bagian yang sedang dilihat
-      var secs = ['beranda', 'produk', 'desain'].map(function (id) { return document.getElementById(id); });
-      function setActive(id) {
-        links.forEach(function (a) {
-          var on = a.getAttribute('href') === '#' + id;
-          a.classList.toggle('active', on);
-          if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-        });
-      }
-      function spy() {
-        var cur = null;
-        secs.forEach(function (s) {
-          if (s && s.getBoundingClientRect().top <= window.innerHeight * 0.4) cur = s.id;
-        });
-        setActive(cur);
-      }
-      var tick = false;
-      window.addEventListener('scroll', function () {
-        if (tick) return;
-        tick = true;
-        requestAnimationFrame(function () { spy(); tick = false; });
-      }, { passive: true });
-      links.forEach(function (a) {
-        a.addEventListener('click', function () { setActive(a.getAttribute('href').slice(1)); });
-      });
-      spy();
-
-      if (reduce) return;
-
       links.forEach(function (a) {
         a.addEventListener('click', function (e) {
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+
+          var here = a.getAttribute('aria-current') === 'page';
+          if (!here) { try { sessionStorage.setItem('skipIntro', '1'); } catch (_) {} }
+
+          if (reduce) { if (!here) location.href = a.href; return; }
+
           // riak
           var r = a.getBoundingClientRect();
           var d = document.createElement('span');
@@ -221,18 +180,14 @@
           a.appendChild(d);
           setTimeout(function () { d.remove(); }, 650);
 
-          // judul tujuan membal
-          var t = document.querySelector(a.getAttribute('href') + ' > h2');
-          if (t) {
-            t.classList.remove('pop');
-            setTimeout(function () {
-              void t.offsetWidth;
-              t.classList.add('pop');
-              setTimeout(function () { t.classList.remove('pop'); }, 900);
-            }, 400);
-          }
+          if (here) return;
+          document.body.classList.add('leaving');
+          setTimeout(function () { location.href = a.href; }, 320);
         });
       });
+
+      // kembali dengan tombol back: pastikan halaman tidak terkunci
+      window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
     })();
   </script>
 
