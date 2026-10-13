@@ -520,8 +520,8 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 .logo-split {
   position: relative;
   isolation: isolate;
-  width: clamp(15rem, 48vmin, 24rem);
-  height: clamp(15rem, 48vmin, 24rem);
+  width: min(78vw, 62vh, 34rem);
+  aspect-ratio: 1;
   animation: merge-pop .45s ease-out 1.15s;
 }
 
@@ -662,12 +662,51 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
 @keyframes bob { 50% { translate: 0 -22px; } }
 
-@media (max-width: 800px) { .scene { display: none; } }
+/* komet jatuh */
+.comet {
+  position: absolute;
+  width: 190px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fff, rgba(255, 226, 122, .75) 22%, rgba(255, 226, 122, 0));
+  transform: rotate(-35deg);
+  opacity: 0;
+  animation: comet 9s linear infinite;
+}
+
+.comet::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin-top: -5.5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px 4px rgba(255, 226, 122, .85), 0 0 26px 10px rgba(229, 184, 11, .4);
+}
+
+.c1 { top: -2%;  right: 8%;  animation-duration: 9s;  animation-delay: 3s; }
+.c2 { top: 8%;   right: 42%; animation-duration: 13s; animation-delay: 6s; }
+.c3 { top: -4%;  right: 68%; animation-duration: 11s; animation-delay: 9s; }
+.c4 { top: 24%;  right: -4%; animation-duration: 15s; animation-delay: 12s; }
+
+@keyframes comet {
+  0%   { opacity: 0; translate: 0 0; }
+  2%   { opacity: 1; }
+  15%  { opacity: 1; }
+  18%  { opacity: 0; translate: -62vmax 43vmax; }
+  100% { opacity: 0; translate: -62vmax 43vmax; }
+}
+
+@media (max-width: 800px) { .horn { display: none; } }
 
 /* ---------- Kurangi gerakan ---------- */
 @media (prefers-reduced-motion: reduce) {
   .intro { display: none; }
   .horn, .hero-logo img { animation: none; }
+  .comet { display: none; }
   body::before { animation: none; }
   .hero-text, .hero > .card { animation: none; }
   html { scroll-behavior: auto; }
