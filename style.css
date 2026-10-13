@@ -3,9 +3,12 @@
   --paper: #f6f8df;
   --grid: #dde6b5;
   --ink: #12301c;
-  --muted: #4a5f45;
+  --muted: #24432b;
   --green: #1b7d37;
   --marker: #ffd23f;
+  --bg-a: #ffe94a;
+  --bg-b: #5fcf6b;
+  --grid-line: rgba(18, 48, 28, .10);
   --card: #fffff0;
   --line: #12301c;
 
@@ -20,9 +23,12 @@
     --paper: #0f1f14;
     --grid: #1a3322;
     --ink: #f1f7d9;
-    --muted: #b3c4a0;
+    --muted: #c9d9b4;
     --green: #8fe08a;
     --marker: #e6c229;
+    --bg-a: #3d3a0c;
+    --bg-b: #0f2a16;
+    --grid-line: rgba(241, 247, 217, .07);
     --card: #16291c;
     --line: #f1f7d9;
   }
@@ -39,12 +45,15 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--ink);
-  background-color: var(--paper);
-  /* kertas milimeter */
+  background-color: var(--bg-a);
+  /* gradasi kuning ke hijau + kertas milimeter */
   background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(160deg, var(--bg-a) 0%, var(--bg-b) 100%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 h1, h2, h3 {
@@ -166,7 +175,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 .hero-logo img {
   display: block;
   width: 100%;
-  max-width: 24rem;
+  max-width: 14rem;
   height: auto;
 }
 
