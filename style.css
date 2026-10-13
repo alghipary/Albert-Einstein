@@ -124,18 +124,46 @@ a { color: var(--green); }
   text-decoration: none;
 }
 
-.top nav { display: flex; gap: 1.5rem; padding: .55rem 1.6rem; }
+.top nav { display: flex; gap: .25rem; padding: .35rem .5rem; }
 
 .top nav a {
+  position: relative;
+  overflow: hidden;
+  padding: .4rem 1rem;
   color: #12301c;
   text-decoration: none;
-  font-weight: 500;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: border-color .15s;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background .2s, color .2s, transform .12s;
 }
 
-.top nav a:hover { border-color: #12301c; }
+.top nav a:hover { background: rgba(18, 48, 28, .14); }
+.top nav a:active { transform: translateY(2px) scale(.93); }
+
+/* menu yang sedang dibuka */
+.top nav a.active { background: #12301c; color: #E5B80B; }
+
+/* efek riak saat diklik */
+.ripple {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .75);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple .6s ease-out forwards;
+}
+
+@keyframes ripple { to { transform: scale(16); opacity: 0; } }
+
+/* judul section membal setelah menu diklik */
+.section > h2.pop { animation: heading-pop .8s cubic-bezier(.2, 1.5, .4, 1); }
+
+@keyframes heading-pop {
+  40% { transform: rotate(-4deg) scale(1.18); }
+}
 
 /* ---------- Hero ---------- */
 main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
@@ -599,4 +627,5 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   .dot { animation: none; }
   .hero h1 { animation: none; background-size: 100% 38%; }
   .btn, .card, .project, .design { transition: none; }
+  .section > h2.pop, .ripple { animation: none; }
 }
