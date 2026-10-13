@@ -156,6 +156,20 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
 .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .8rem; }
 
+.hero h1.hero-logo {
+  background: none;
+  animation: none;
+  line-height: 0;
+  max-width: 100%;
+}
+
+.hero-logo img {
+  display: block;
+  width: 100%;
+  max-width: 24rem;
+  height: auto;
+}
+
 /* ---------- Tombol ---------- */
 .btn {
   display: inline-block;
