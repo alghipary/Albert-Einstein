@@ -196,6 +196,16 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   transform: rotate(1.5deg);
 }
 
+.card .logo {
+  display: block;
+  width: 100%;
+  max-width: 11rem;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .card h2 {
   font-size: 1.15rem;
   padding-bottom: .8rem;
