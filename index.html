@@ -13,12 +13,22 @@
 <body>
 
   <div class="scene" aria-hidden="true">
-    <i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="orb o4"></i>
+    <svg width="0" height="0" style="position:absolute" focusable="false">
+      <symbol id="horn" viewBox="0 0 100 160">
+        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#0d2814" stroke-width="16" stroke-linecap="round"/>
+        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round" transform="translate(-2 -2)"/>
+      </symbol>
+    </svg>
+    <svg class="horn h1" viewBox="0 0 100 160"><use href="#horn"/></svg>
+    <svg class="horn h2" viewBox="0 0 100 160"><use href="#horn"/></svg>
+    <svg class="horn h3" viewBox="0 0 100 160"><use href="#horn"/></svg>
+    <svg class="horn h4" viewBox="0 0 100 160"><use href="#horn"/></svg>
   </div>
 
   <div class="intro" aria-hidden="true">
-    <div class="intro-panel top"></div>
-    <div class="intro-panel bottom"></div>
+    <div class="intro-panel p-up"></div>
+    <div class="intro-panel p-down"></div>
     <div class="intro-center">
       <div class="logo-split">
         <img class="half l" src="logo.png" alt="" width="500" height="500">
