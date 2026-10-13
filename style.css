@@ -149,9 +149,13 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
 .lead {
   margin-top: 1.5rem;
-  max-width: 34em;
+  max-width: 14em;
   color: var(--on-bg);
-  font-size: 1.15rem;
+  font-family: "Londrina Solid", "Impact", "Arial Black", sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: .01em;
 }
 
 .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .8rem; }
