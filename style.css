@@ -1,23 +1,324 @@
-html {
-  height: 100%;
-  background: 50% 50% no-repeat
-    url('data:image/svg+xml,<svg viewBox="-20 -5 60 40" width="140" xmlns="http://www.w3.org/2000/svg" opacity="0.2"><path d="M1 8l11-7 11 7v8l-11 7-11-7zm0 0l11 8 11-8m0 8L12 8 1 16M12 1v7m0 8v7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/><text x="-12" y="32" font-size="5" font-family="monospace" fill="currentColor">Built on CodePen</text></svg>');
+/* ---------- Token ---------- */
+:root {
+  --paper: #eef2f7;
+  --grid: #d5dde8;
+  --ink: #14213d;
+  --muted: #4d5b75;
+  --blue: #2b4eff;
+  --marker: #ffd23f;
+  --card: #ffffff;
+  --line: #14213d;
+
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+
+  --max: 1080px;
 }
 
-body{background-color: solid-green;
-     border:5px solid red; border. radius:15 px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1626;
+    --grid: #1b2640;
+    --ink: #eaf0ff;
+    --muted: #a3b0cc;
+    --blue: #7f97ff;
+    --card: #17203a;
+    --line: #eaf0ff;
+  }
 }
 
-h1{
-  text-align:center;
-   font-weight:bold;
-   color:;
-  }
-   
-ul{list_style_type:none;
+/* ---------- Dasar ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--paper);
+  /* kertas milimeter */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  line-height: 1.1;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+a { color: var(--blue); }
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+.top {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.top nav { display: flex; gap: 1.5rem; }
+
+.top nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color .15s;
+}
+
+.top nav a:hover { border-color: var(--blue); }
+
+/* ---------- Hero ---------- */
+main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0 5rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.dot {
+  width: .65rem;
+  height: .65rem;
+  border-radius: 50%;
+  background: #1fb96b;
+  box-shadow: 0 0 0 0 rgba(31, 185, 107, .6);
+  animation: ping 2.2s ease-out infinite;
+}
+
+@keyframes ping {
+  to { box-shadow: 0 0 0 .7rem rgba(31, 185, 107, 0); }
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  max-width: 14em;
+  /* stabilo kuning di belakang teks */
+  background-image: linear-gradient(var(--marker), var(--marker));
+  background-repeat: no-repeat;
+  background-size: 0% 38%;
+  background-position: 0 90%;
+  animation: stabilo .9s .3s ease-out forwards;
+}
+
+@keyframes stabilo { to { background-size: 100% 38%; } }
+
+@media (prefers-color-scheme: dark) {
+  .hero h1 { background-image: linear-gradient(#3b4fd1, #3b4fd1); }
+}
+
+.lead {
+  margin-top: 1.5rem;
+  max-width: 34em;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .8rem; }
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-block;
+  padding: .75rem 1.4rem;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--line);
+  transition: transform .12s, box-shadow .12s;
+}
+
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--line);
+}
+
+.btn.primary { background: var(--blue); color: #fff; }
+
+@media (prefers-color-scheme: dark) {
+  .btn.primary { color: #0f1626; }
+}
+
+/* ---------- Kartu profil ---------- */
+.card {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 8px 8px 0 var(--line);
+  transform: rotate(1.5deg);
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  padding-bottom: .8rem;
+  margin-bottom: .4rem;
+  border-bottom: 2px dashed var(--grid);
+}
+
+.card dl { margin: 0; }
+
+.card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid var(--grid);
+}
+
+.card dl div:last-child { border-bottom: 0; }
+
+.card dt { color: var(--muted); }
+.card dd { margin: 0; font-weight: 600; text-align: right; }
+
+/* ---------- Section ---------- */
+.section { padding: 3rem 0; }
+
+.section > h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  letter-spacing: -.02em;
+  margin-bottom: 1.75rem;
+}
+
+/* ---------- Proyek ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.project h3 { font-size: 1.35rem; }
+.project p { color: var(--muted); }
+.project .tags { font-size: .9rem; color: var(--ink); font-weight: 500; }
+
+.project a {
+  margin-top: auto;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Skill ---------- */
+.skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
+.skills li {
+  padding: .45rem 1rem;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* ---------- Kontak ---------- */
+.contact {
+  margin: 2rem 0 4rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 8px 8px 0 var(--line);
+}
+
+.contact h2 { margin-bottom: 1rem; }
+
+.contact p {
+  max-width: 30em;
+  margin: 0 auto 1.75rem;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
   }
 
-   li{
-     display:inline;
-      padding:4px;
-     
+  .card { transform: none; max-width: 420px; }
+}
+
+@media (max-width: 480px) {
+  .top { flex-direction: column; align-items: flex-start; }
+  .top nav { gap: 1.1rem; }
+  .contact { padding: 2rem 1.25rem; }
+}
+
+/* ---------- Kurangi gerakan ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .dot { animation: none; }
+  .hero h1 { animation: none; background-size: 100% 38%; }
+  .btn { transition: none; }
+}

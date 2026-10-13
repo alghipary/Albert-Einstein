@@ -1,18 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nama Kamu — Web Developer</title>
+  <meta name="description" content="Portofolio Nama Kamu, web developer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<html lang="en">
-  <head>
-    Informatika X-D Alghifary Naufal
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Blog</h1>
-    <ul>
-      <li>Beranda</li>
-      <li><a href="desain.html">Desain</a></li>
-      <li><a href="produk.html">Produk</a></li>
-    </ul>
-    <p>
-    </p>
-  </body>
+  <header class="top">
+    <a class="brand" href="#atas">nama.dev</a>
+    <nav aria-label="Navigasi utama">
+      <a href="#proyek">Proyek</a>
+      <a href="#skill">Skill</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <main id="atas">
+
+    <section class="hero">
+      <div class="hero-text">
+        <p class="status"><span class="dot" aria-hidden="true"></span> Terbuka untuk proyek baru</p>
+        <h1>Saya membangun website yang cepat dan mudah dipakai.</h1>
+        <p class="lead">Halo, saya Nama Kamu, web developer dari Jakarta. Saya mengerjakan situs, aplikasi web, dan tool kecil yang menyelesaikan masalah nyata.</p>
+        <div class="actions">
+          <a class="btn primary" href="#proyek">Lihat proyek</a>
+          <a class="btn" href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <aside class="card" aria-label="Ringkasan profil">
+        <h2>Profil singkat</h2>
+        <dl>
+          <div><dt>Lokasi</dt><dd>Jakarta, Indonesia</dd></div>
+          <div><dt>Fokus</dt><dd>Front-end &amp; UI</dd></div>
+          <div><dt>Stack</dt><dd>HTML, CSS, JavaScript</dd></div>
+          <div><dt>Pengalaman</dt><dd>3 tahun</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section id="proyek" class="section">
+      <h2>Proyek</h2>
+      <div class="projects">
+        <article class="project">
+          <h3>Toko Online Kecil</h3>
+          <p>Katalog produk dengan keranjang dan checkout via WhatsApp untuk UMKM.</p>
+          <p class="tags">HTML · CSS · JavaScript</p>
+          <a href="#">Lihat kode</a>
+        </article>
+        <article class="project">
+          <h3>Catatan Harian</h3>
+          <p>Aplikasi catatan yang tersimpan di browser, bisa dipakai tanpa internet.</p>
+          <p class="tags">JavaScript · PWA</p>
+          <a href="#">Lihat kode</a>
+        </article>
+        <article class="project">
+          <h3>Dashboard Cuaca</h3>
+          <p>Prakiraan cuaca per jam dengan tampilan yang jelas di layar HP.</p>
+          <p class="tags">React · API</p>
+          <a href="#">Lihat kode</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="skill" class="section">
+      <h2>Skill</h2>
+      <ul class="skills">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Git</li>
+        <li>Figma</li>
+        <li>Responsive design</li>
+        <li>Aksesibilitas</li>
+      </ul>
+    </section>
+
+    <section id="kontak" class="section contact">
+      <h2>Ayo ngobrol</h2>
+      <p>Punya ide atau butuh website? Kirim pesan, biasanya saya balas dalam sehari.</p>
+      <a class="btn primary" href="mailto:email@kamu.com">email@kamu.com</a>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>© 2026 Nama Kamu. Dibuat dengan HTML dan CSS.</p>
+  </footer>
+
+</body>
 </html>
-
