@@ -6,9 +6,9 @@
   --muted: #24432b;
   --green: #1b7d37;
   --marker: #ffd23f;
-  --bg-top: #b9f0a6;     /* hijau muda */
-  --bg-bottom: #1e4a22;  /* hijau tua */
-  --foot: #f6f8df;
+  --bg-top: #2f5d2a;     /* hijau SMAN 71 */
+  --bg-bottom: #06130a;  /* makin gelap ke bawah */
+  --on-bg: #f6f8df;      /* teks di atas background */
   --card: #fffff0;
   --line: #12301c;
 
@@ -26,8 +26,8 @@
     --muted: #c9d9b4;
     --green: #8fe08a;
     --marker: #e6c229;
-    --bg-top: #2f6b34;
-    --bg-bottom: #0c1f10;
+    --bg-top: #2a5427;
+    --bg-bottom: #040d06;
     --card: #16291c;
     --line: #f1f7d9;
   }
@@ -43,9 +43,9 @@ body {
   font-family: var(--body);
   font-size: 1.0625rem;
   line-height: 1.6;
-  color: var(--ink);
+  color: var(--on-bg);
   background-color: var(--bg-bottom);
-  /* gradasi hijau muda -> hijau tua */
+  /* gradasi hijau SMAN 71 -> makin gelap */
   background-image: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -62,7 +62,7 @@ p { margin: 0; }
 a { color: var(--green); }
 
 :focus-visible {
-  outline: 3px solid var(--line);
+  outline: 3px solid var(--marker);
   outline-offset: 3px;
 }
 
@@ -81,14 +81,14 @@ a { color: var(--green); }
   font-family: var(--display);
   font-weight: 800;
   font-size: 1.25rem;
-  color: var(--ink);
+  color: var(--on-bg);
   text-decoration: none;
 }
 
 .top nav { display: flex; gap: 1.5rem; }
 
 .top nav a {
-  color: var(--ink);
+  color: var(--on-bg);
   text-decoration: none;
   font-weight: 500;
   padding-bottom: 2px;
@@ -96,7 +96,7 @@ a { color: var(--green); }
   transition: border-color .15s;
 }
 
-.top nav a:hover { border-color: var(--ink); }
+.top nav a:hover { border-color: var(--marker); }
 
 /* ---------- Hero ---------- */
 main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
@@ -115,7 +115,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   gap: .6rem;
   font-size: .95rem;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--on-bg);
   margin-bottom: 1.25rem;
 }
 
@@ -154,7 +154,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 .lead {
   margin-top: 1.5rem;
   max-width: 14em;
-  color: var(--ink);
+  color: var(--on-bg);
   font-family: "Londrina Solid", "Impact", "Arial Black", sans-serif;
   font-weight: 900;
   font-size: clamp(2.2rem, 6vw, 3.8rem);
@@ -204,6 +204,11 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
 .btn.primary { background: var(--marker); color: #12301c; }
 
+
+/* tombol di atas background hijau gelap */
+.actions .btn { border-color: var(--on-bg); box-shadow: 4px 4px 0 var(--marker); }
+.actions .btn:hover { box-shadow: 2px 2px 0 var(--marker); }
+.actions .btn:active { box-shadow: 0 0 0 var(--marker); }
 
 /* ---------- Kartu profil ---------- */
 .card {
@@ -400,7 +405,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 .foot {
   text-align: center;
   padding: 2rem 1.5rem 3rem;
-  color: var(--foot);
+  color: var(--on-bg);
   font-size: .95rem;
 }
 
