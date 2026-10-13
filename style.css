@@ -1,13 +1,13 @@
 /* ---------- Token ---------- */
 :root {
-  --paper: #eef2f7;
-  --grid: #d5dde8;
-  --ink: #14213d;
-  --muted: #4d5b75;
-  --blue: #2b4eff;
+  --paper: #f6f8df;
+  --grid: #dde6b5;
+  --ink: #12301c;
+  --muted: #4a5f45;
+  --green: #1b7d37;
   --marker: #ffd23f;
-  --card: #ffffff;
-  --line: #14213d;
+  --card: #fffff0;
+  --line: #12301c;
 
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
@@ -17,13 +17,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0f1626;
-    --grid: #1b2640;
-    --ink: #eaf0ff;
-    --muted: #a3b0cc;
-    --blue: #7f97ff;
-    --card: #17203a;
-    --line: #eaf0ff;
+    --paper: #0f1f14;
+    --grid: #1a3322;
+    --ink: #f1f7d9;
+    --muted: #b3c4a0;
+    --green: #8fe08a;
+    --marker: #e6c229;
+    --card: #16291c;
+    --line: #f1f7d9;
   }
 }
 
@@ -54,10 +55,10 @@ h1, h2, h3 {
 
 p { margin: 0; }
 
-a { color: var(--blue); }
+a { color: var(--green); }
 
 :focus-visible {
-  outline: 3px solid var(--blue);
+  outline: 3px solid var(--green);
   outline-offset: 3px;
 }
 
@@ -91,7 +92,7 @@ a { color: var(--blue); }
   transition: border-color .15s;
 }
 
-.top nav a:hover { border-color: var(--blue); }
+.top nav a:hover { border-color: var(--green); }
 
 /* ---------- Hero ---------- */
 main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
@@ -143,7 +144,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 @keyframes stabilo { to { background-size: 100% 38%; } }
 
 @media (prefers-color-scheme: dark) {
-  .hero h1 { background-image: linear-gradient(#3b4fd1, #3b4fd1); }
+  .hero h1 { background-image: linear-gradient(#2e6a35, #2e6a35); }
 }
 
 .lead {
@@ -179,10 +180,10 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   box-shadow: 0 0 0 var(--line);
 }
 
-.btn.primary { background: var(--blue); color: #fff; }
+.btn.primary { background: var(--green); color: #fff; }
 
 @media (prefers-color-scheme: dark) {
-  .btn.primary { color: #0f1626; }
+  .btn.primary { color: #0f1f14; }
 }
 
 /* ---------- Kartu profil ---------- */
