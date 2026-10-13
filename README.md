@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     Informatika X-D Alghifary Naufal
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>Blog</h1>
