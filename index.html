@@ -12,6 +12,10 @@
 </head>
 <body>
 
+  <div class="scene" aria-hidden="true">
+    <i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="orb o4"></i>
+  </div>
+
   <div class="intro" aria-hidden="true">
     <div class="intro-panel top"></div>
     <div class="intro-panel bottom"></div>
@@ -79,13 +83,6 @@
           <p class="tags">React · API</p>
           <a href="#">Lihat kode</a>
         </article>
-        <article class="project">
-          <span class="ico" aria-hidden="true">🧊</span>
-          <h3>Karya 3D Blender</h3>
-          <p>Model dan render 3D sederhana, dari objek produk sampai adegan pendek.</p>
-          <p class="tags">Blender · 3D</p>
-          <a href="#">Lihat karya</a>
-        </article>
       </div>
     </section>
 
@@ -98,7 +95,6 @@
         <li><span aria-hidden="true">⚛️</span> React</li>
         <li><span aria-hidden="true">🌿</span> Git</li>
         <li><span aria-hidden="true">✏️</span> Figma</li>
-        <li><span aria-hidden="true">🧊</span> Blender</li>
         <li><span aria-hidden="true">📱</span> Responsive design</li>
         <li><span aria-hidden="true">♿</span> Aksesibilitas</li>
       </ul>
@@ -114,10 +110,6 @@
         <figure class="design d2">
           <div class="art" aria-hidden="true">📱</div>
           <figcaption><strong>Mockup Aplikasi</strong><span>Figma · UI/UX</span></figcaption>
-        </figure>
-        <figure class="design d3">
-          <div class="art" aria-hidden="true">🧊</div>
-          <figcaption><strong>Render 3D</strong><span>Blender</span></figcaption>
         </figure>
       </div>
     </section>
@@ -135,6 +127,100 @@
   </footer>
 
 
+
+
+  <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      // kartu miring 3D mengikuti kursor
+      document.querySelectorAll('.card, .project, .design').forEach(function (el) {
+        el.addEventListener('pointermove', function (e) {
+          if (e.pointerType === 'touch') return;
+          var r = el.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          el.style.setProperty('--ry', (x * 14) + 'deg');
+          el.style.setProperty('--rx', (-y * 14) + 'deg');
+        });
+        el.addEventListener('pointerleave', function () {
+          el.style.setProperty('--rx', '0deg');
+          el.style.setProperty('--ry', '0deg');
+        });
+      });
+
+      // logo berputar 3D mengikuti kursor
+      var logo = document.querySelector('.hero-logo img');
+      if (logo) {
+        window.addEventListener('pointermove', function (e) {
+          if (e.pointerType === 'touch') return;
+          logo.style.setProperty('--ry', ((e.clientX / innerWidth - 0.5) * 36) + 'deg');
+          logo.style.setProperty('--rx', ((0.5 - e.clientY / innerHeight) * 28) + 'deg');
+        });
+      }
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      var links = document.querySelectorAll('.top nav a');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // tandai menu sesuai bagian yang sedang dilihat
+      var secs = ['beranda', 'produk', 'desain'].map(function (id) { return document.getElementById(id); });
+      function setActive(id) {
+        links.forEach(function (a) {
+          var on = a.getAttribute('href') === '#' + id;
+          a.classList.toggle('active', on);
+          if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      }
+      function spy() {
+        var cur = null;
+        secs.forEach(function (s) {
+          if (s && s.getBoundingClientRect().top <= window.innerHeight * 0.4) cur = s.id;
+        });
+        setActive(cur);
+      }
+      var tick = false;
+      window.addEventListener('scroll', function () {
+        if (tick) return;
+        tick = true;
+        requestAnimationFrame(function () { spy(); tick = false; });
+      }, { passive: true });
+      links.forEach(function (a) {
+        a.addEventListener('click', function () { setActive(a.getAttribute('href').slice(1)); });
+      });
+      spy();
+
+      if (reduce) return;
+
+      links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          // riak
+          var r = a.getBoundingClientRect();
+          var d = document.createElement('span');
+          d.className = 'ripple';
+          d.style.left = (e.clientX - r.left) + 'px';
+          d.style.top = (e.clientY - r.top) + 'px';
+          a.appendChild(d);
+          setTimeout(function () { d.remove(); }, 650);
+
+          // judul tujuan membal
+          var t = document.querySelector(a.getAttribute('href') + ' > h2');
+          if (t) {
+            t.classList.remove('pop');
+            setTimeout(function () {
+              void t.offsetWidth;
+              t.classList.add('pop');
+              setTimeout(function () { t.classList.remove('pop'); }, 900);
+            }, 400);
+          }
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
