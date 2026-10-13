@@ -421,8 +421,95 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   .contact { padding: 2rem 1.25rem; }
 }
 
+
+/* ---------- Transisi pembuka ---------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  animation: intro-hide 0s 2.9s forwards;
+}
+
+.intro-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: #173d1c;
+}
+
+.intro-panel.top {
+  top: 0;
+  border-bottom: 3px solid var(--marker);
+  animation: panel-up .8s cubic-bezier(.77, 0, .18, 1) 2.1s forwards;
+}
+
+.intro-panel.bottom {
+  bottom: 0;
+  border-top: 3px solid var(--marker);
+  animation: panel-down .8s cubic-bezier(.77, 0, .18, 1) 2.1s forwards;
+}
+
+.intro-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1rem;
+  animation: intro-out .35s ease-in 1.95s forwards;
+}
+
+.intro-center img {
+  width: 9rem;
+  height: auto;
+  animation: logo-in .7s cubic-bezier(.2, 1.4, .4, 1) both;
+}
+
+.intro-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: .06em;
+  color: #f6f8df;
+  animation: rise .6s ease-out .3s both;
+}
+
+.intro-bar {
+  width: 12rem;
+  height: .6rem;
+  border: 2px solid #f6f8df;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.intro-bar span {
+  display: block;
+  height: 100%;
+  background: var(--marker);
+  animation: bar 1.4s ease-in-out .4s both;
+}
+
+@keyframes panel-up   { to { transform: translateY(-101%); } }
+@keyframes panel-down { to { transform: translateY(101%); } }
+@keyframes intro-out  { to { opacity: 0; transform: scale(.9); } }
+@keyframes intro-hide { to { visibility: hidden; } }
+@keyframes logo-in    { from { opacity: 0; transform: scale(.5) rotate(-8deg); } }
+@keyframes rise       { from { opacity: 0; transform: translateY(14px); } }
+@keyframes bar        { from { width: 0; } to { width: 100%; } }
+
+/* isi halaman muncul setelah tirai terbuka */
+.hero-text, .hero > .card {
+  animation: page-in .8s ease-out 2.35s both;
+}
+
+@keyframes page-in { from { opacity: 0; translate: 0 28px; } }
+
 /* ---------- Kurangi gerakan ---------- */
 @media (prefers-reduced-motion: reduce) {
+  .intro { display: none; }
+  .hero-text, .hero > .card { animation: none; }
   html { scroll-behavior: auto; }
   .dot { animation: none; }
   .hero h1 { animation: none; background-size: 100% 38%; }
