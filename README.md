@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
   <head>
     Informatika X-D Alghifary Naufal
