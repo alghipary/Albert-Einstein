@@ -3,193 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portofolio Exypnos, web developer.">
   <title>Exypnos — Web Developer</title>
-  <meta name="description" content="Portofolio Nama Kamu, web developer.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Londrina+Solid:wght@400;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script>
-    try {
-      if (sessionStorage.getItem('skipIntro')) {
-        document.documentElement.classList.add('no-intro');
-        sessionStorage.removeItem('skipIntro');
-      }
-    } catch (e) {}
-  </script>
 </head>
-<body>
+<body id="atas">
 
-  <div class="scene" aria-hidden="true">
-    <svg width="0" height="0" style="position:absolute" focusable="false">
-      <symbol id="horn" viewBox="0 0 100 160">
-        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#0d2814" stroke-width="16" stroke-linecap="round"/>
-        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
-        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round" transform="translate(-2 -2)"/>
-      </symbol>
-    </svg>
-    <svg class="horn h1" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <svg class="horn h2" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <svg class="horn h3" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <svg class="horn h4" viewBox="0 0 100 160"><use href="#horn"/></svg>
-    <i class="comet c1"></i><i class="comet c2"></i><i class="comet c3"></i><i class="comet c4"></i>
-  </div>
-
-  <div class="intro" aria-hidden="true">
-    <div class="intro-panel p-up"></div>
-    <div class="intro-panel p-down"></div>
-    <div class="intro-center">
-      <div class="logo-split">
-        <img class="half l" src="logo.png" alt="" width="500" height="500">
-        <img class="half r" src="logo.png" alt="" width="500" height="500">
-      </div>
-      <p class="intro-name">Exypnos</p>
-      <div class="intro-bar"><span></span></div>
-    </div>
-  </div>
-
-  <header class="top">
-    <a class="brand" href="#atas">exypnos.dev</a>
-    <nav aria-label="Navigasi utama">
-      <a href="index.html" class="active" aria-current="page">Beranda</a>
+  <header class="header">
+    <a class="brand" href="#atas">
+      <img src="logo.png" alt="Logo Exypnos" width="40" height="40">
+      <span class="brand-text">
+        <strong>Exypnos</strong>
+        <small>exypnos.dev</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="index.html" aria-current="page">Beranda</a>
       <a href="produk.html">Produk</a>
       <a href="desain.html">Desain</a>
     </nav>
   </header>
 
-  <main id="atas">
-
+  <main>
+    <!-- HERO -->
     <section class="hero">
-      <div class="hero-text">
-        <p class="status"><span class="dot" aria-hidden="true"></span> Terbuka untuk proyek baru</p>
-        <h1 class="hero-logo"><img src="logo.png" alt="Logo SMAN 71 Jakarta" width="500" height="480"></h1>
-        <p class="lead">Halo, kami kelompok Exypnos, dari SMAN 71 Jakarta</p>
-        <div class="actions">
-          <a class="btn primary" href="#beranda">Lihat proyek</a>
-          <a class="btn" href="https://github.com/USERNAME" target="_blank" rel="noopener">GitHub</a>
+      <p class="status"><span class="dot" aria-hidden="true"></span>Terbuka untuk proyek baru</p>
+      <img class="hero-logo" src="logo.png" alt="Logo SMAN 71 Jakarta" width="120" height="120">
+      <h1>Logo SMAN 71 Jakarta</h1>
+      <p class="lead">Halo, kami kelompok Exypnos, dari SMAN 71 Jakarta</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#beranda">Lihat proyek</a>
+        <a class="btn btn-outline" href="https://github.com/USERNAME">GitHub</a>
+      </div>
+    </section>
+
+    <!-- PROFIL -->
+    <section class="profil">
+      <h2>Profil singkat</h2>
+      <dl class="profil-list">
+        <div><dt>Lokasi</dt><dd>Jakarta, Indonesia</dd></div>
+        <div><dt>Fokus</dt><dd>Front-end &amp; UI</dd></div>
+        <div><dt>Stack</dt><dd>HTML, CSS, JavaScript</dd></div>
+        <div><dt>Pengalaman</dt><dd>3 tahun</dd></div>
+      </dl>
+    </section>
+
+    <!-- PRODUK (latar kuning emas) -->
+    <section class="produk" id="beranda">
+      <div class="produk-inner">
+        <h2>Beranda</h2>
+        <div class="produk-grid">
+
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">🛒</span>
+            <h3>Toko Online Kecil</h3>
+            <p>Katalog produk dengan keranjang dan checkout via WhatsApp untuk UMKM.</p>
+            <p class="tags">HTML · CSS · JavaScript</p>
+            <a class="card-link" href="#">Lihat kode</a>
+          </article>
+
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">📝</span>
+            <h3>Catatan Harian</h3>
+            <p>Aplikasi catatan yang tersimpan di browser, bisa dipakai tanpa internet.</p>
+            <p class="tags">JavaScript · PWA</p>
+            <a class="card-link" href="#">Lihat kode</a>
+          </article>
+
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">⛅</span>
+            <h3>Dashboard Cuaca</h3>
+            <p>Prakiraan cuaca per jam dengan tampilan yang jelas di layar HP.</p>
+            <p class="tags">React · API</p>
+            <a class="card-link" href="#">Lihat kode</a>
+          </article>
+
         </div>
       </div>
-
-      <aside class="card" aria-label="Ringkasan profil">
-        <h2>Profil singkat</h2>
-        <dl>
-          <div><dt>Lokasi</dt><dd>Jakarta, Indonesia</dd></div>
-          <div><dt>Fokus</dt><dd>Front-end &amp; UI</dd></div>
-          <div><dt>Stack</dt><dd>HTML, CSS, JavaScript</dd></div>
-          <div><dt>Pengalaman</dt><dd>3 tahun</dd></div>
-        </dl>
-      </aside>
     </section>
 
-    <section id="beranda" class="section">
-      <h2>Beranda</h2>
-      <div class="projects">
-        <article class="project">
-          <span class="ico" aria-hidden="true">🛒</span>
-          <h3>Toko Online Kecil</h3>
-          <p>Katalog produk dengan keranjang dan checkout via WhatsApp untuk UMKM.</p>
-          <p class="tags">HTML · CSS · JavaScript</p>
-          <a href="#">Lihat kode</a>
-        </article>
-        <article class="project">
-          <span class="ico" aria-hidden="true">📝</span>
-          <h3>Catatan Harian</h3>
-          <p>Aplikasi catatan yang tersimpan di browser, bisa dipakai tanpa internet.</p>
-          <p class="tags">JavaScript · PWA</p>
-          <a href="#">Lihat kode</a>
-        </article>
-        <article class="project">
-          <span class="ico" aria-hidden="true">⛅</span>
-          <h3>Dashboard Cuaca</h3>
-          <p>Prakiraan cuaca per jam dengan tampilan yang jelas di layar HP.</p>
-          <p class="tags">React · API</p>
-          <a href="#">Lihat kode</a>
-        </article>
+    <!-- PRESENTASI CANVA -->
+    <section class="presentasi" id="presentasi">
+      <h2>Presentasi</h2>
+      <p class="presentasi-ket">Slide kelompok Exypnos dari Canva.</p>
+
+      <div class="ppt-frame">
+        <!-- Tempat PPT Canva.
+             Cara pasang: di Canva klik Bagikan > Lihat lainnya > Sematkan (Embed),
+             salin link-nya, lalu ganti tulisan LINK_CANVA_KAMU di bawah.
+             Setelah itu hapus kotak "ppt-placeholder" dan hilangkan tanda komentar pada <iframe>.
+
+        <iframe loading="lazy"
+                src="LINK_CANVA_KAMU"
+                title="Presentasi Exypnos di Canva"
+                allowfullscreen></iframe>
+        -->
+
+        <div class="ppt-placeholder">
+          <span aria-hidden="true">📊</span>
+          <p>Tempat presentasi Canva</p>
+          <small>Tempel link sematan Canva di sini (lihat komentar di <code>index.html</code>).</small>
+        </div>
       </div>
     </section>
 
-    <section id="kontak" class="section contact">
+    <!-- KONTAK -->
+    <section class="kontak">
       <h2>Ayo ngobrol</h2>
       <p>Punya ide atau butuh website? Kirim pesan, biasanya saya balas dalam sehari.</p>
-      <a class="btn primary" href="mailto:email@kamu.com">email@kamu.com</a>
+      <a class="email" href="mailto:email@kamu.com">email@kamu.com</a>
     </section>
-
   </main>
 
-  <footer class="foot">
-    <p>© 2026 Exypnos. Dibuat dengan Claude Ai. </p>
+  <footer class="footer">
+    <p>© 2026 Exypnos. Dibuat dengan Claude Ai.</p>
   </footer>
-
-
-
-
-  <script>
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      // kartu miring 3D mengikuti kursor
-      document.querySelectorAll('.card, .project, .design').forEach(function (el) {
-        el.addEventListener('pointermove', function (e) {
-          if (e.pointerType === 'touch') return;
-          var r = el.getBoundingClientRect();
-          var x = (e.clientX - r.left) / r.width - 0.5;
-          var y = (e.clientY - r.top) / r.height - 0.5;
-          el.style.setProperty('--ry', (x * 14) + 'deg');
-          el.style.setProperty('--rx', (-y * 14) + 'deg');
-        });
-        el.addEventListener('pointerleave', function () {
-          el.style.setProperty('--rx', '0deg');
-          el.style.setProperty('--ry', '0deg');
-        });
-      });
-
-      // logo berputar 3D mengikuti kursor
-      var logo = document.querySelector('.hero-logo img');
-      if (logo) {
-        window.addEventListener('pointermove', function (e) {
-          if (e.pointerType === 'touch') return;
-          logo.style.setProperty('--ry', ((e.clientX / innerWidth - 0.5) * 36) + 'deg');
-          logo.style.setProperty('--rx', ((0.5 - e.clientY / innerHeight) * 28) + 'deg');
-        });
-      }
-    })();
-  </script>
-
-
-  <script>
-    (function () {
-      var links = document.querySelectorAll('.top nav a');
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      links.forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
-          e.preventDefault();
-
-          var here = a.getAttribute('aria-current') === 'page';
-          if (!here) { try { sessionStorage.setItem('skipIntro', '1'); } catch (_) {} }
-
-          if (reduce) { if (!here) location.href = a.href; return; }
-
-          // riak
-          var r = a.getBoundingClientRect();
-          var d = document.createElement('span');
-          d.className = 'ripple';
-          d.style.left = (e.clientX - r.left) + 'px';
-          d.style.top = (e.clientY - r.top) + 'px';
-          a.appendChild(d);
-          setTimeout(function () { d.remove(); }, 650);
-
-          if (here) return;
-          document.body.classList.add('leaving');
-          setTimeout(function () { location.href = a.href; }, 320);
-        });
-      });
-
-      // kembali dengan tombol back: pastikan halaman tidak terkunci
-      window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
-    })();
-  </script>
 
 </body>
 </html>
