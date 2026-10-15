@@ -10,3 +10,22 @@
 
    #desain .project { background-color: #cfe9ff; }
    ===================================================== */
+
+/* ---------- Render 3D lebih rapi ---------- */
+/* blok besar miring lebih halus supaya teks tidak buram */
+.contact, .ppt-frame {
+  transform: perspective(1200px)
+             rotateX(calc(var(--rx, 0deg) * .35))
+             rotateY(calc(var(--ry, 0deg) * .35));
+}
+
+/* judul section: miring halus, tetap sedikit condong */
+.section > h2 {
+  transform: perspective(900px)
+             rotateX(calc(var(--rx, 0deg) * .5))
+             rotateY(calc(var(--ry, 0deg) * .5))
+             rotate(-1.2deg);
+}
+
+/* tepi dan teks kartu tetap tajam saat miring */
+.project, .card, .contact, .section > h2 { backface-visibility: hidden; }
