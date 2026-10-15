@@ -21,4 +21,4 @@
 
 #produk .project a { color: #12301c; }
 
-#produk .project .ico { background: #fffff0; }
+#produk .project .ico { background: radial-gradient(circle at 32% 28%, #ffffff 0 14%, #fffff0 48%, #d8d49a 100%); }
