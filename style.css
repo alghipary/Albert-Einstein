@@ -721,3 +721,63 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
   .btn, .card, .project, .design { transition: none; }
   .section > h2.pop, .ripple { animation: none; }
 }
+
+
+/* =====================================================
+   TAMBAHAN BERANDA (digabung dari tambahan.css)
+   ===================================================== */
+
+/* ---------- Beranda: kartu produk berlatar kuning emas ---------- */
+#beranda .project {
+  background-color: #f2b705;           /* kuning emas */
+  color: #12301c;
+  border-color: #12301c;
+  box-shadow:
+    1px 1px 0 #a87000, 2px 2px 0 #a87000, 3px 3px 0 #a87000,
+    4px 4px 0 #a87000, 5px 5px 0 #a87000, 6px 6px 0 #a87000,
+    14px 22px 34px rgba(0, 0, 0, .45);
+}
+
+#beranda .project p { color: #3b2e00; }
+
+#beranda .project .tags { color: #12301c; font-weight: 600; }
+
+#beranda .project a { color: #12301c; }
+
+#beranda .project .ico { background: #fffff0; }
+
+/* ---------- Beranda: tempat presentasi Canva ---------- */
+.ppt-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;                /* rasio slide */
+  overflow: hidden;
+  background-color: var(--card);
+  background-image: linear-gradient(150deg, var(--gloss), transparent 45%);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--slab);
+}
+
+.ppt-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.ppt-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: .4rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--ink);
+}
+
+.ppt-placeholder .ppt-ico { font-size: 3rem; line-height: 1; }
+.ppt-placeholder p { font-family: var(--display); font-weight: 800; font-size: 1.3rem; }
+.ppt-placeholder small { color: var(--muted); font-size: .95rem; }
