@@ -50,7 +50,10 @@
   </div>
 
   <header class="top">
-    <a class="brand" href="#atas">exypnos.dev</a>
+    <div class="brand-group">
+      <img class="brand-logo" src="logo.png" alt="Logo SMAN 71 Jakarta" width="500" height="480">
+      <a class="brand" href="#atas">exypnos.dev</a>
+    </div>
     <nav aria-label="Navigasi utama">
       <a href="index.html">Beranda</a>
       <a href="produk.html">Produk</a>
@@ -107,7 +110,7 @@
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       // kartu miring 3D mengikuti kursor
-      document.querySelectorAll('.card, .project, .design').forEach(function (el) {
+      document.querySelectorAll('.card, .project, .design, .contact, .ppt-frame, .section > h2, .status').forEach(function (el) {
         el.addEventListener('pointermove', function (e) {
           if (e.pointerType === 'touch') return;
           var r = el.getBoundingClientRect();
@@ -123,12 +126,16 @@
       });
 
       // logo berputar 3D mengikuti kursor
-      var logo = document.querySelector('.hero-logo img');
-      if (logo) {
+      var logos = document.querySelectorAll('.hero-logo img, .brand-logo');
+      if (logos.length) {
         window.addEventListener('pointermove', function (e) {
           if (e.pointerType === 'touch') return;
-          logo.style.setProperty('--ry', ((e.clientX / innerWidth - 0.5) * 36) + 'deg');
-          logo.style.setProperty('--rx', ((0.5 - e.clientY / innerHeight) * 28) + 'deg');
+          var ry = ((e.clientX / innerWidth - 0.5) * 36) + 'deg';
+          var rx = ((0.5 - e.clientY / innerHeight) * 28) + 'deg';
+          logos.forEach(function (l) {
+            l.style.setProperty('--ry', ry);
+            l.style.setProperty('--rx', rx);
+          });
         });
       }
     })();
