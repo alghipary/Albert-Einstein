@@ -852,13 +852,17 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
 
 /* =====================================================
    BERANDA: RUNNING TEXT 3D (abu perak elegan)
-   Menempel di atas layar saat halaman di-scroll.
+   Tetap di bawah layar dan ikut ke mana pun halaman di-scroll,
+   seperti running text berita.
    ===================================================== */
 .marquee {
-  position: sticky;
-  top: .9rem;
-  z-index: 20;
-  margin: 0 0 1.25rem;
+  position: fixed;                       /* selalu ikut di layar, bukan di satu tempat */
+  left: 0;
+  right: 0;
+  bottom: max(.9rem, env(safe-area-inset-bottom));
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto;
+  z-index: 50;
   border: 2px solid #565c66;
   border-radius: 999px;
   /* pelat logam perak: kilap di atas, gelap tipis di bawah */
@@ -912,7 +916,7 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
 }
 
 @media (max-width: 480px) {
-  .marquee { top: .6rem; }
+  .marquee { bottom: max(.6rem, env(safe-area-inset-bottom)); }
   .marquee-item { font-size: .9rem; padding-top: .5rem; padding-bottom: .5rem; }
 }
 
@@ -920,3 +924,6 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
   .marquee-track { animation: none; }
   .marquee { transition: none; }
 }
+
+/* ruang di bawah footer agar tidak tertutup running text */
+body:has(.marquee) .foot { padding-bottom: 6rem; }
