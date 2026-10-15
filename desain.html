@@ -98,6 +98,16 @@
 
   </main>
 
+  <!-- RUNNING TEXT (tetap di bawah layar, ikut ke mana pun di-scroll) -->
+  <div class="marquee" role="marquee" aria-label="Exypnos, SMAN 71 Jakarta, Front-end dan UI, terbuka untuk proyek baru">
+    <div class="marquee-window" aria-hidden="true">
+      <div class="marquee-track">
+        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
+        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
+      </div>
+    </div>
+  </div>
+
   <footer class="foot">
     <p>© 2026 Exypnos. Dibuat dengan Claude Ai. </p>
   </footer>
@@ -110,7 +120,7 @@
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       // kartu miring 3D mengikuti kursor
-      document.querySelectorAll('.card, .project, .design, .contact, .ppt-frame, .section > h2, .status').forEach(function (el) {
+      document.querySelectorAll('.card, .project, .design, .contact, .ppt-frame, .section > h2, .status, .marquee').forEach(function (el) {
         el.addEventListener('pointermove', function (e) {
           if (e.pointerType === 'touch') return;
           var r = el.getBoundingClientRect();
