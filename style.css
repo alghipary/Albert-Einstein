@@ -788,11 +788,11 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
    ===================================================== */
 
 /* logo di sebelah kiri "exypnos.dev" */
-.brand-group { display: flex; align-items: center; gap: .9rem; }
+.brand-group { display: flex; align-items: center; gap: .7rem; }
 
 .brand-logo {
   display: block;
-  height: 3.6rem;
+  height: 3.15rem;       /* sama tinggi dengan pil "exypnos.dev" */
   width: auto;
   transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
   transition: transform .2s ease-out;
