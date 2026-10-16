@@ -930,3 +930,7 @@ body:has(.marquee) .foot { padding-bottom: 6rem; }
 /* link cadangan presentasi */
 .ppt-link { margin-top: 1rem; }
 .ppt-link a { color: var(--on-bg); font-weight: 600; text-underline-offset: 4px; }
+
+/* presentasi Canva format potret (4:5) */
+.ppt-frame.portrait { aspect-ratio: 4 / 5; max-width: 560px; margin: 0 auto; }
+.ppt-link { text-align: center; }
