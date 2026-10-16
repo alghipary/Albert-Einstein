@@ -926,3 +926,7 @@ body.leaving main, body.leaving .top { opacity: 0; transform: translateY(8px); t
 
 /* ruang di bawah footer agar tidak tertutup running text */
 body:has(.marquee) .foot { padding-bottom: 6rem; }
+
+/* link cadangan presentasi */
+.ppt-link { margin-top: 1rem; }
+.ppt-link a { color: var(--on-bg); font-weight: 600; text-underline-offset: 4px; }
