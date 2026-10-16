@@ -1,31 +1,191 @@
-/* =====================================================
-   desain.css — khusus halaman Desain (desain.html)
-   Dimuat SETELAH style.css, jadi hanya mengubah halaman ini.
-   Beranda dan Produk tidak terpengaruh.
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desain — Exypnos</title>
+  <meta name="description" content="Portofolio Nama Kamu, web developer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Londrina+Solid:wght@400;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="desain.css">
+  <script>
+    try {
+      if (sessionStorage.getItem('skipIntro')) {
+        document.documentElement.classList.add('no-intro');
+        sessionStorage.removeItem('skipIntro');
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
 
-   Saat ini file ini belum mengubah apa pun, jadi tampilan
-   halaman Desain sama persis seperti aslinya.
-   Tulis gaya khusus Desain di bawah. Contoh (hapus tanda
-   komentar untuk mencoba kartu berwarna biru muda):
+  <div class="scene" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute" focusable="false">
+      <symbol id="horn" viewBox="0 0 100 160">
+        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#0d2814" stroke-width="16" stroke-linecap="round"/>
+        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+        <path d="M18 156 C22 104 40 64 60 34 C70 18 92 12 90 30 C88 44 70 42 72 30" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round" transform="translate(-2 -2)"/>
+      </symbol>
+    </svg>
+    <svg class="horn h1" viewBox="0 0 100 160"><use href="#horn"/></svg>
+    <svg class="horn h2" viewBox="0 0 100 160"><use href="#horn"/></svg>
+    <svg class="horn h3" viewBox="0 0 100 160"><use href="#horn"/></svg>
+    <svg class="horn h4" viewBox="0 0 100 160"><use href="#horn"/></svg>
+    <i class="comet c1"></i><i class="comet c2"></i><i class="comet c3"></i><i class="comet c4"></i>
+  </div>
 
-   #desain .project { background-color: #cfe9ff; }
-   ===================================================== */
+  <div class="intro" aria-hidden="true">
+    <div class="intro-panel p-up"></div>
+    <div class="intro-panel p-down"></div>
+    <div class="intro-center">
+      <div class="logo-split">
+        <img class="half l" src="logo.png" alt="" width="500" height="500">
+        <img class="half r" src="logo.png" alt="" width="500" height="500">
+      </div>
+      <p class="intro-name">Exypnos</p>
+      <div class="intro-bar"><span></span></div>
+    </div>
+  </div>
 
-/* ---------- Render 3D lebih rapi ---------- */
-/* blok besar miring lebih halus supaya teks tidak buram */
-.contact, .ppt-frame {
-  transform: perspective(1200px)
-             rotateX(calc(var(--rx, 0deg) * .35))
-             rotateY(calc(var(--ry, 0deg) * .35));
-}
+  <header class="top">
+    <div class="brand-group">
+      <img class="brand-logo" src="logo.png" alt="Logo SMAN 71 Jakarta" width="500" height="480" style="height:3.15rem;width:auto">
+      <a class="brand" href="#atas">exypnos.dev</a>
+    </div>
+    <nav aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="desain.html" class="active" aria-current="page">Desain</a>
+    </nav>
+  </header>
 
-/* judul section: miring halus, tetap sedikit condong */
-.section > h2 {
-  transform: perspective(900px)
-             rotateX(calc(var(--rx, 0deg) * .5))
-             rotateY(calc(var(--ry, 0deg) * .5))
-             rotate(-1.2deg);
-}
+  <main id="atas">
 
-/* tepi dan teks kartu tetap tajam saat miring */
-.project, .card, .contact, .section > h2 { backface-visibility: hidden; }
+    <section id="desain" class="section">
+      <h2>Desain</h2>
+      <div class="projects">
+        <article class="project">
+          <span class="ico" aria-hidden="true">🛒</span>
+          <h3>Toko Online Kecil</h3>
+          <p>Katalog produk dengan keranjang dan checkout via WhatsApp untuk UMKM.</p>
+          <p class="tags">HTML · CSS · JavaScript</p>
+          <a href="#">Lihat kode</a>
+        </article>
+        <article class="project">
+          <span class="ico" aria-hidden="true">📝</span>
+          <h3>Catatan Harian</h3>
+          <p>Aplikasi catatan yang tersimpan di browser, bisa dipakai tanpa internet.</p>
+          <p class="tags">JavaScript · PWA</p>
+          <a href="#">Lihat kode</a>
+        </article>
+        <article class="project">
+          <span class="ico" aria-hidden="true">⛅</span>
+          <h3>Dashboard Cuaca</h3>
+          <p>Prakiraan cuaca per jam dengan tampilan yang jelas di layar HP.</p>
+          <p class="tags">React · API</p>
+          <a href="#">Lihat kode</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontak" class="section contact">
+      <h2>Ayo ngobrol</h2>
+      <p>Punya ide atau butuh website? Kirim pesan, biasanya saya balas dalam sehari.</p>
+      <a class="btn primary" href="mailto:email@kamu.com">email@kamu.com</a>
+    </section>
+
+  </main>
+
+  <!-- RUNNING TEXT (tetap di bawah layar, ikut ke mana pun di-scroll) -->
+  <div class="marquee" role="marquee" aria-label="Exypnos, SMAN 71 Jakarta, Front-end dan UI, terbuka untuk proyek baru">
+    <div class="marquee-window" aria-hidden="true">
+      <div class="marquee-track">
+        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
+        <p class="marquee-item">Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru • Exypnos • SMAN 71 Jakarta • Front-end &amp; UI • HTML • CSS • JavaScript • Terbuka untuk proyek baru •</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <p>© 2026 Exypnos. Dibuat dengan Claude Ai. </p>
+  </footer>
+
+
+
+
+  <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      // kartu miring 3D mengikuti kursor
+      document.querySelectorAll('.card, .project, .design, .contact, .ppt-frame, .section > h2, .status, .marquee').forEach(function (el) {
+        el.addEventListener('pointermove', function (e) {
+          if (e.pointerType === 'touch') return;
+          var r = el.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          el.style.setProperty('--ry', (x * 14) + 'deg');
+          el.style.setProperty('--rx', (-y * 14) + 'deg');
+        });
+        el.addEventListener('pointerleave', function () {
+          el.style.setProperty('--rx', '0deg');
+          el.style.setProperty('--ry', '0deg');
+        });
+      });
+
+      // logo berputar 3D mengikuti kursor
+      var logos = document.querySelectorAll('.hero-logo img, .brand-logo');
+      if (logos.length) {
+        window.addEventListener('pointermove', function (e) {
+          if (e.pointerType === 'touch') return;
+          var ry = ((e.clientX / innerWidth - 0.5) * 36) + 'deg';
+          var rx = ((0.5 - e.clientY / innerHeight) * 28) + 'deg';
+          logos.forEach(function (l) {
+            l.style.setProperty('--ry', ry);
+            l.style.setProperty('--rx', rx);
+          });
+        });
+      }
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      var links = document.querySelectorAll('.top nav a');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+
+          var here = a.getAttribute('aria-current') === 'page';
+          if (!here) { try { sessionStorage.setItem('skipIntro', '1'); } catch (_) {} }
+
+          if (reduce) { if (!here) location.href = a.href; return; }
+
+          // riak
+          var r = a.getBoundingClientRect();
+          var d = document.createElement('span');
+          d.className = 'ripple';
+          d.style.left = (e.clientX - r.left) + 'px';
+          d.style.top = (e.clientY - r.top) + 'px';
+          a.appendChild(d);
+          setTimeout(function () { d.remove(); }, 650);
+
+          if (here) return;
+          document.body.classList.add('leaving');
+          setTimeout(function () { location.href = a.href; }, 320);
+        });
+      });
+
+      // kembali dengan tombol back: pastikan halaman tidak terkunci
+      window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+    })();
+  </script>
+
+</body>
+</html>
