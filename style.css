@@ -324,7 +324,6 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
   color: #12301c;
   border: 2px solid var(--line);
   border-radius: 999px;
-  border-radius: 999px;
   box-shadow: 0 5px 0 var(--gold-side), 0 10px 16px rgba(0, 0, 0, .35);
   transform: rotate(-1.2deg);
 }
